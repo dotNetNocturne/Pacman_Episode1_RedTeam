@@ -17,10 +17,10 @@ namespace PacManTests
         {
             var board = new Mock<IDisplayable>();
 
-            var game = new Game(board.Object,null);
+            var game = new Game(board.Object, It.IsAny<IWriteble>());
 
             game.Start();
-            board.Verify(b => b.Displayed(Mock.Of<IWriteble>()), Times.Once);
+            board.Verify(b => b.Displayed(It.IsAny<IWriteble>()), Times.Once);
             //  Assert.AreEqual(true, );
         }
     }
